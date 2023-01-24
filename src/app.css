@@ -1,4 +1,5 @@
 /* LAYOUT */
+
 .app {
   height: 100vh;
   display: flex;
@@ -41,17 +42,6 @@
   line-height: 1.5;
   margin-top: 1rem;
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 10%);
-}
-
-.task h3 {
-  font-size: 18px;
-  color: #c8781a;
-}
-
-.task p {
-  padding: 0.5rem 0 0.75rem;
-  font-size: 14px;
-  color: #444;
 }
 
 .task button {
@@ -104,9 +94,11 @@
   font-size: 1.5rem;
   padding-bottom: 0.5rem;
 }
-
-.form-line {
-  padding-top: 1rem;
+.background-red {
+  background-color: #ffd9d4;
+}
+.background-blue {
+  background-color: #ada4c7;
 }
 
 .input-text,
@@ -132,11 +124,11 @@
   cursor: pointer;
 }
 
-.input-label {
+/* .input-label {
   font-size: 14px;
   display: block;
   padding-bottom: 6px;
-}
+} */
 
 .input-error {
   font-size: 12px;

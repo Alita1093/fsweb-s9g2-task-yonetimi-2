@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 export default function TaskHookForm({ kisiler, submitFn }) {
   const {
@@ -21,19 +21,18 @@ export default function TaskHookForm({ kisiler, submitFn }) {
     reset({
       title: "",
       description: "",
-      deadline: ""
+      deadline: "",
     });
   }
 
-
   return (
     <form className="taskForm" onSubmit={handleSubmit(mySubmit)}>
-      <div className="form-line">
-        <label className="input-label" htmlFor="title">
+      <div className="p-4">
+        <label className="text-sm block pb-2" htmlFor="title">
           Başlık
         </label>
         <input
-          className="input-text"
+          className="block w-full border border-slate-700 p-1 text-sm rounded "
           {...register("title", { required: "Task başlığı yazmalısınız" })}
           id="title"
           name="title"
@@ -47,7 +46,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           Açıklama
         </label>
         <textarea
-          className="input-textarea"
+          className="block w-full border border-slate-700 p-1 text-sm rounded"
           {...register("description", {
             required: "Task açıklaması yazmalısınız",
             minLength: {
@@ -68,7 +67,10 @@ export default function TaskHookForm({ kisiler, submitFn }) {
         <label className="input-label">İnsanlar</label>
         <div>
           {kisiler.map((p) => (
-            <label className="input-checkbox" key={p}>
+            <label
+              className="text-sm py-1.5 pr-2 pl-1 rounded border border-slate-700 mr-2 mb-2 inline-flex items-center cursor-pointer "
+              key={p}
+            >
               <input
                 {...register("people", {
                   required: "Lütfen en az 1 kişi seçin",
@@ -96,13 +98,17 @@ export default function TaskHookForm({ kisiler, submitFn }) {
         </label>
         <input
           className="input-text"
-          {...register("deadline", { required: "Son teslim tarihi seçmelisiniz" })}
+          {...register("deadline", {
+            required: "Son teslim tarihi seçmelisiniz",
+          })}
           id="deadline"
           name="deadline"
           type="date"
           min="2023-01-25"
         />
-        {errors.deadline && <p className="input-error">{errors.deadline.message}</p>}
+        {errors.deadline && (
+          <p className="input-error">{errors.deadline.message}</p>
+        )}
       </div>
 
       <div className="form-line">
